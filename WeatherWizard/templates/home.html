@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}WeatherWhiz| Home{% endblock title %}
+ 
+{% block main_content %}
+<div class="container-fluid px-1 px-sm-3 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+      <div class="row card0">
+          <div class="card1 col-lg-8 col-md-7">
+              <small>WeatherWhiz</small>
+              <div class="text-center">
+                <img id="weatherImage" class="image mt-5">
+              </div>
+              <div class="row px-3 mt-3 mb-3">
+                  <h1 class="large-font mr-3 ll">{{ temp }}&#176;</h1>
+                  <h1 class="large-font mr-3 mm">{{ city }}&#176;</h1>
+                  <div class="d-flex flex-column mr-3">
+                    <h2>{{ time_12hr_format_utc }}</h2>
+                    <h2>{{ date }}</h2>
+                    
+                  </div>
+                  <div class="d-flex flex-column text-center">
+                      <h3 class="fa fa-sun-o mt-4"><small>{{ weather }}</small></h3>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="card2 col-lg-4 col-md-5">
+              <div class="row px-3">
+                  <form method="post">
+                      {% csrf_token %}
+                      <input type="text" name="city" placeholder="Enter location" class="mb-5">
+                      <button type="submit" class="fa fa-search mb-5 mr-0 text-center"></button>
+                  </form>
+              </div>
+              <div class="mr-5">
+
+                  <div class="line my-5"></div>
+
+                  <p>Weather Details</p>
+                  <div class="row px-3">
+                      <p class="light-text">Clouds</p>
+                      <p class="ml-auto">{{ clouds }}</p>
+                  </div>
+                  <div class="row px-3">
+                      <p class="light-text">Humidity</p>
+                      <p class="ml-auto">{{ humidity }}</p>
+                  </div>
+                  <div class="row px-3">
+                      <p class="light-text">Wind</p>
+                      <p class="ml-auto">{{ wind_speed }}</p>
+                  </div>
+                  <div class="row px-3">
+                      <p class="light-text">Weather</p>
+                      <p class="ml-auto">{{ weather }}</p>
+                  </div>
+                  <div class="row px-3">
+                    <p class="light-text">Conuntry Code</p>
+                    <p class="ml-auto">{{country_code}}</p>
+                  </div>
+                  <div class="row px-3">
+                    <p class="light-text">Coordinates [X,Y]</p>
+                    <p class="ml-auto">{{coordinate}}</p>
+                  </div>
+                  <div class="row px-3">
+                    <p class="light-text">Pressure :</p>
+                    <p class="ml-auto">{{pressure}}</p>
+                  </div>
+                  <div class="row px-3">
+                    <p class="light-text">Sea Level :</p>
+                    <p class="ml-auto">{{sea_level}}</p>
+                  </div>
+                  
+                  <div class="row px-3">
+                    <p class="light-text">Sun Rise at :</p>
+                    <p class="ml-auto">{{sunrise_time}}</p>
+                  </div>
+                  <div class="row px-3">
+                    <p class="light-text">Sun Set at :</p>
+                    <p class="ml-auto">{{sunset_time}}</p>
+                  </div>
+
+                  <div class="line mt-3"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  // Get the image element
+  var image = document.getElementById("weatherImage");
+
+  // Get the value of the weather variable from the server-side context
+  var weather = "{{ weather }}";
+
+  // Check the value of the weather variable and change the image source accordingly
+  if (weather === "Clouds") {
+      image.src = "{% static 'image/clouds.png' %}"; // Replace 'cloudy_image.jpg' with the name of your cloudy image file
+  } else if (weather === "Rain") {
+      image.src = "{% static 'image/rain.png' %}"; // Replace 'rainy_image.jpg' with the name of your rainy image file
+  }  else if (weather === "Drizzle") {
+      image.src = "{% static 'image/drizzle.png' %}"; // Replace 'rainy_image.jpg' with the name of your rainy image file
+  } else if (weather === "Sunny") {
+      image.src = "{% static 'image/sunny.png' %}"; // Replace 'rainy_image.jpg' with the name of your rainy image file
+  } else if (weather === "Snow") {
+      image.src = "{% static 'image/snow.png' %}"; // Replace 'rainy_image.jpg' with the name of your rainy image file
+  } 
+
+   else {
+      image.src = "https://i.imgur.com/M8VyA2h.png"; // Replace 'default_image.jpg' with the name of your default image file
+  }
+</script>
+
+
+{% endblock main_content %}
