@@ -36,15 +36,12 @@ To run WeatherWhiz locally on your machine, follow these steps:
 
 1. Clone this repository to your local machine using `git clone`.
 2. Navigate to the project directory.
-3. Install the required dependencies by running `pip install -r requirements.txt`.
-4. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/) and replace the placeholder in the `api_key` variable in `views.py`.
-5. Run the Django server using `python manage.py runserver`.
+3. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/) and replace the placeholder in the `api_key` variable in `views.py`.
+4. Run the Django server using `python manage.py runserver`.
 6. Access the application in your web browser at `http://127.0.0.1:8000/`.
 
 ## Contributors
 
-- Your Name
+- Abid Raza
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
