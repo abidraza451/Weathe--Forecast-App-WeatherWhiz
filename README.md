@@ -1,6 +1,7 @@
 # WeatherWhiz
 
 WeatherWhiz is a simple web application that provides users with current weather information for any city around the world. With WeatherWhiz, you can quickly check the temperature, humidity, wind speed, and other weather details for your desired location.
+![WeatherWhiz](![1](https://github.com/abidraza451/Weathe--Forecast-App-WeatherWhiz/assets/62200623/a84a295f-db40-4a6e-9c32-11b9ae79e717))
 
 ## Features
 
